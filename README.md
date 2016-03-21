@@ -1,2 +1,2 @@
-# Image-Proccesing-Steganogrphy-
-High level algorithms from the image proccesing world and encryption/detection methods from image Steganogrphy
+# Image-Processing-Steganogrphy-
+High level algorithms from the image processing world and encryption/detection methods from image Steganogrphy
