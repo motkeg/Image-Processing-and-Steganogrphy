@@ -2,9 +2,7 @@ from PIL.Image import *
 from PIL.ImageOps import *
 import binascii
 
-
-
-
+'''this file have a special func  to detect the  original  pixels that was changed by the steganography encryption'''  
 
 def ViewChange(source,tar,s=1,b=0):
     assert source.size==tar.size ,"Size missmach!"
