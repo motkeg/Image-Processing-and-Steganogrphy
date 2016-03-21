@@ -9,8 +9,8 @@ def ViewChange(source,tar,s=1,b=0):
     temp=source
     pxlarry=[]
     binarypxl=[]
-    for x in range(temp.size[0]):
-        for y in range(temp.size[1]):
+    for x in xrange(temp.size[0]):
+        for y in xrange(temp.size[1]):
             p = source.getpixel((x, y))
             q = tar.getpixel((x, y))
             if p!=q:
