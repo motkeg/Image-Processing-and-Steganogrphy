@@ -3,6 +3,8 @@ language: python
 python:
     - "2.7"
 
-install: ./Image-Processing-and-Steganogrphy/image  processing/opencv.sh
+install: 
+    - ./Image-Processing-and-Steganogrphy/image  processing/opencv.sh
+    - pip install numpy
 script: python Image-Processing-and-Steganogrphy/image  processing/motionDetect.py
 
