@@ -4,9 +4,9 @@ python:
     - "2.7"
 
 before_install:
-  - chmod 755 image  processing/opencv.sh
+  - chmod 755 image\ \ processing/opencv.sh
 install: 
-    - ./image  processing/opencv.sh
+    - ./image\ \ processing/opencv.sh
     - pip install numpy
 script: python Image-Processing-and-Steganogrphy/image  processing/motionDetect.py
 
