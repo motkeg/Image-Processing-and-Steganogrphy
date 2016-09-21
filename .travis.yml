@@ -8,5 +8,5 @@ before_install:
 install: 
     - ./image\ \ processing/opencv.sh
     - pip install numpy
-script: python Image-Processing-and-Steganogrphy/image  processing/motionDetect.py
+script: python image\ \ processing/motionDetect.py
 
