@@ -1,12 +1,18 @@
 import numpy as np
 import cv2
-import math 
-import time
+import math ,time
+
 
 
 
 '''-----------------------------------------------'''
+
+
 def normalize(arr):
+	
+        ''' The normalization proccess is to clear 'noise' that captured  by the camera
+            in duration of the algorithm.  '''
+		   
         arr = arr.astype('float')
         for i in xrange(0,1):
             minval = arr[..., i].min()
@@ -15,8 +21,13 @@ def normalize(arr):
                 arr[..., i] -= minval
                 arr[..., i] *= (255.0 / (maxval - minval))
         return arr
-'''------------------------------------------------'''   
+'''------------------------------------------------'''  
 def FrameSmoth(frame):
+
+    ''' In this stage of algorithm we impliment the 'bluring' procces -
+        the function clculate the score of each frame of the interval (0.25 s) by execute the gaussian.
+        The goal of this proccess is to avoid 'False Positive'	of ths frames hat we recognized as diffrent. ''' 
+
     gaussian =cv2.getGaussianKernel(5,10)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray=cv2.filter2D(gray,-1,gaussian)
@@ -27,6 +38,12 @@ def FrameSmoth(frame):
 '''---------------------------------------------------'''       
 
 def AVGframe( frms):
+        ''' Here we clculate the avg frame of the inteval due to the formula:
+       	   avg = (sum(N)*W(i)*I(i))/N
+           where: N = size of frames
+             	  W = weight of each frame (we can give same weight for all frames)
+                  I = frame.			
+           finally we subtract the final frame from the avarege.				  '''
 
         N=len(frms)
         w=1/1.2
@@ -37,7 +54,7 @@ def AVGframe( frms):
         return res 
                  
 
-def Q1():
+def Main():
     cap = cv2.VideoCapture(0)  
     while(cap.isOpened()):
         frams=[]
@@ -56,17 +73,16 @@ def Q1():
             else:
                 break     
             
-        avg=AVGframe(frams)
+        avg = AVGframe(frams)
         cv2.imshow('frames after Averaging',avg)
        
-        if cv2.waitKey(1) & 0xFF == ord('q'): # exit if the user choose to stop
+        if cv2.waitKey(1) & 0xFF == ord(' '): # exit if the user choose to stop
             break
 # Release everything if job is finished
     cap.release()
     cv2.destroyAllWindows()        
             
           
-    
 
 
 
@@ -93,6 +109,6 @@ def Q2():
     cap.release()
     cv2.destroyAllWindows()
     
-
-Q1()
+if __name__ =="__main__":
+    Main()       
 
