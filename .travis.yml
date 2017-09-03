@@ -1,12 +1,9 @@
 language: python
-
+cach: pip
 python:
     - "2.7"
 
-before_install:
-  - chmod 755 image\ \ processing/opencv.sh
 install: 
-    - ./image\ \ processing/opencv.sh
-    - pip install numpy
+    - pip install numpy opencv-python
 script: python image\ \ processing/motionDetect.py
 
