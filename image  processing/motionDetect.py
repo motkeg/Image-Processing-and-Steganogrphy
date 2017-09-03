@@ -55,8 +55,9 @@ def AVGframe( frms):
                  
 
 def Main():
-    print "----------------START video capture--------------------------------"
+    
     cap = cv2.VideoCapture(0)  
+    print "----------------START video capture--------------------------------"
     while(cap.isOpened()):
         frams=[]
         ret = cap.set(3,320)
