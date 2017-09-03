@@ -55,6 +55,7 @@ def AVGframe( frms):
                  
 
 def Main():
+    print "----------------START video capture--------------------------------"
     cap = cv2.VideoCapture(0)  
     while(cap.isOpened()):
         frams=[]
@@ -81,6 +82,8 @@ def Main():
 # Release everything if job is finished
     cap.release()
     cv2.destroyAllWindows()        
+
+    print  "END PROGRAM"
             
           
 
